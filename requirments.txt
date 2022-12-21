@@ -1,0 +1,11 @@
+## The following requirements were added by pip freeze:
+asgiref==3.5.2
+backports.zoneinfo==0.2.1
+Django==4.1.4
+django-phonenumber-field==7.0.1
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+phonenumberslite==8.13.2
+PyJWT==2.6.0
+pytz==2022.7
+sqlparse==0.4.3
