@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.response import Response
 from .serializers import *
 from rest_framework import status, filters
@@ -7,10 +7,14 @@ from .models import *
 from rest_framework.views import APIView
 from django.http import Http404
 from rest_framework import generics, viewsets
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 # Create your views here.
 
                         #Movies FBV
 @api_view(['GET', 'POST'])
+
+@permission_classes([IsAuthenticatedOrReadOnly])
 def movielist(request):
     try:
         guest = Guest.objects.all()
@@ -28,7 +32,10 @@ def movielist(request):
         serializer = GuestSerializer(guest, many = True)
         return Response(serializer.data, status = status.HTTP_200_OK)
 
+
 @api_view(['GET', 'PUT', 'DELETE'])
+
+@permission_classes([IsAuthenticatedOrReadOnly])
 def movie_pk(request, pk):
     try:
         guest = Guest.objects.get(pk=pk)
@@ -68,6 +75,8 @@ class ListHalls(APIView):
             return Response(serializer.data, status = status.HTTP_200_OK)
         return Response(status = status.HTTP_204_NO_CONTENT)
 
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
 class HallPk(APIView):
     def get_object(self, pk):
         try:
@@ -95,14 +104,19 @@ class HallPk(APIView):
 
                     #GuestGeneridCBV
 
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
 class GuestList(generics.ListCreateAPIView):
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 class GuestPk(generics.RetrieveUpdateDestroyAPIView):
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
 
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
                 #Viewsets reservation
@@ -112,6 +126,8 @@ class Reservation(viewsets.ModelViewSet):
     serializer_class = ReservationSerializer
     filter_backends  = [filters.SearchFilter]
     search_fields = ['guest__name']
+
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
         
 
