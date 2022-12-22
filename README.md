@@ -2,6 +2,10 @@
 # Cinema Ticket RservationAPI
 
 API for Cinema ticket reservation made by Django, DjangoREST.
+-FBV apiview
+-CBV APIVIEW
+-Generics
+-Viewsets
 
 ## Features
 
