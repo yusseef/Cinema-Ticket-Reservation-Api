@@ -37,7 +37,7 @@ And you good to go.
     
 ## Feedback
 
-If you have any feedback, please reach out to us at yussef.raouf11@gmail.com
+If you have any feedback, please reach out to me at yussef.raouf11@gmail.com
 
 
 ![Logo](http://ForTheBadge.com/images/badges/made-with-python.svg)
