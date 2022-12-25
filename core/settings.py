@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'ticket',
     "phonenumber_field",
+    'drf_yasg',
 
 ]
 REST_FRAMEWORK= {
