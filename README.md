@@ -34,7 +34,13 @@ After you clone the repo run the following commands
   python manage.py runserver
 ```
 And you good to go.
-    
+
+### All Apis Routes documented in the follwoing route by swagger:
+
+
+```http
+   /swagger
+```
 ## Feedback
 
 If you have any feedback, please reach out to me at yussef.raouf11@gmail.com
